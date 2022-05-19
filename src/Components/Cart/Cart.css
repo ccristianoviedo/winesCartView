@@ -13,7 +13,9 @@
 .btnCancel{
     width: 20%;
     height: 600px;
-    padding-top: 300px; 
+    padding-top: 300px;
+    font-size: 150%;
+    font-weight: bold;
 }
 .shop{
    margin-top: 80px;

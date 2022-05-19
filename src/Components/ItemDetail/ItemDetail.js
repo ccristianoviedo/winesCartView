@@ -1,11 +1,14 @@
-import React, { useContext} from 'react';
+import React, { useContext, useState} from 'react';
 import '../ItemDetail/ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount';
 import CartContext from '../../Context/cart-context';
 import { Link } from 'react-router-dom';
 
 const ItemDetails=({item})=>{
+    const [visible, setVisible] = useState(false);
     const{addItem}=useContext(CartContext);
+
+    const endShop=()=>setVisible(true)
 
     return (
         <div className='item'>
@@ -20,8 +23,8 @@ const ItemDetails=({item})=>{
                 <p>CRIANZA: {item.breeding}</p>
                 <p>SUGERENCIA: {item.suggest}</p>
                 <p>STOCK: {item.stock}</p>
-                <button className="btn btn-danger btnEnd"><Link to='/Cart'>Finalizar Compra</Link></button>                               
-                <ItemCount item={item} stock={item.stock} initial={1} addItem={addItem}/>                
+                {visible && <button className="btn btn-danger btnEnd"><Link to='/Cart'>Finalizar Compra</Link></button>}                               
+                <ItemCount item={item} stock={item.stock} initial={1} addItem={addItem} endShop={endShop}/>                
             </div>   
         </div>
     ) 

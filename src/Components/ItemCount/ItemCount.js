@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './ItemCount.css'
 
-const ItemCount=({stock, initial,addItem, item})=>{
+const ItemCount=({stock, initial,addItem, item, endShop})=>{
     const [counter, setCounter]= useState(initial);
         
     if (stock<1){
@@ -19,7 +19,12 @@ const ItemCount=({stock, initial,addItem, item})=>{
             if(newValue >= initial){
                 setCounter(newValue)
             }
-        }                   
+        }
+        const Item=(item, counter)=>{
+            addItem(item,counter)
+            endShop()
+
+        }                
         return(
             <>
                 <div className='counters'>
@@ -31,7 +36,7 @@ const ItemCount=({stock, initial,addItem, item})=>{
                         <input type="text" value={counter}/>
                         <label>Cantidad</label>
                         <input type="range" value={counter}min={1} max={stock} onChange={(e)=>setCounter(e.target.value)}/>
-                        <button className="btn btn-danger btnCount" onClick={()=>addItem(item, counter)} >Añadir al Carrito</button>
+                        <button className="btn btn-danger btnCount" onClick={()=>Item(item, counter)}>Añadir al Carrito</button>
                     </div>
                 </div>
             </>

@@ -20,8 +20,8 @@ const Cart = () => {
                     </div>
                     <div className='btnCancel'>
                         <button className="btn btn-danger btnEnd" onClick={()=>clearItems()}>BORRAR TODOS LOS PRODUCTOS</button>
-                        <p>PRECIO TOTAL: {totalPrice()}</p>
-                        <p>CANTIDAD TOTAL: {totalCount()}</p>
+                        <p>PRECIO TOTAL: $ {totalPrice()}</p>
+                        <p>CANTIDAD TOTAL: {totalCount()} UNIDADES</p>
                     </div>
                 </div>
             </>

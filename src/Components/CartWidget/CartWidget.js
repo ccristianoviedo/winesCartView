@@ -9,7 +9,7 @@ const CartWidget=()=>{
     let itemsCart=0;
 
     items.map((item)=>itemsCart = itemsCart + item.qty)
-
+    
     if(items.length>=1){
     return(
         <>
